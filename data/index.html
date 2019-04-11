@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>home</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <link type="text/css" rel="stylesheet" href="style.css">
+
+</head>
+<body>
+    <div class="container-fluid">
+        <!-- Second navbar for categories -->
+        <nav class="navbar navbar-inverse navbar-fixed-top">
+            <div class="container">
+                <!-- Brand and toggle get grouped for better mobile display -->
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse-1">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="#">WIFIRELAY</a>
+                </div>
+
+                <!-- Collect the nav links, forms, and other content for toggling -->
+                <div class="collapse navbar-collapse" id="navbar-collapse-1">
+                    <ul class="nav navbar-nav navbar-right ">
+                        <li><a id="home" name="home_page" href="javascript:void(0)" onclick="show_page(this);">Home</a></li>
+                        <li><a id="auth" name="auth_page" href="javascript:void(0)" onclick="show_page(this);">authentication</a></li>
+                        <li><a id="io" name="io_page"  href="javascript:void(0)" onclick="show_page(this);">i/o</a></li>
+                        <li><a id="relay" name="relay_page" href="javascript:void(0)" onclick="show_page(this);">relay</a></li>
+                        <li><a id="analog" name="analog_page" href="javascript:void(0)" onclick="show_page(this);">analog</a></li>
+                        <li><a id="datetime" name="datetime_page" href="javascript:void(0)" onclick="show_page(this);">date & time</a></li>
+                        <li><a id="about" name="about_page" href="javascript:void(0)" onclick="show_page(this);">about</a></li>
+                    </ul>
+                </div><!-- /.navbar-collapse -->
+            </div><!-- /.container -->
+        </nav><!-- /.navbar -->
+    </div>
+
+    <br/><br/><br/>
+
+    <div class="container">
+
+        <!-- home page -->
+        <div id="home_page">
+            <h3> home page </h3>
+        </div>
+        <!-- /home page -->
+
+
+        <!--auth page -->
+        <div id="auth_page">
+            <div w3-include-html="auth.html"></div>
+        </div>
+        <!-- /auth page -->
+
+
+        <!--io page -->
+        <div id="io_page">
+            <div w3-include-html="io.html"></div>
+        </div>
+        <!-- /io page -->
+
+        <!-- relay page -->
+        <div id="relay_page">
+            <h3> relay page </h3>
+        </div>
+        <!-- /relay page -->
+
+        <!-- analog page -->
+        <div id="analog_page">
+            <h3> analog page </h3>
+        </div>
+        <!-- /analog page -->
+
+
+        <!-- datetime page -->
+        <div id="datetime_page">
+            <h3> datetime page </h3>
+        </div>
+        <!-- /datetime page -->
+
+        <!-- about page -->
+        <div id="about_page">
+            <h3> about page </h3>
+        </div>
+        <!-- /about page -->
+
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-switch/3.3.4/js/bootstrap-switch.js" data-turbolinks-track="true"></script>
+    <script src="main.js"></script>
+
+    <script>
+        show_home_page();
+        includeHTML();
+    </script>
+
+</body>
+</html>
