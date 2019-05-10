@@ -1,0 +1,635 @@
+<div class="row">
+    <h3 class="text-danger text-center">Relay Management Page</h3>
+
+    <!--////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+            MANUAL FUNCTIONS
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////-->
+    <div class="row">
+        <div class="col-sm-2 col-md-2  col-lg-2"></div>
+        <div class="col-sm-8 col-md-8 col-lg-8">
+            <p class="text-center text-info">The relays are SPDT and can control a load of 5A @ 250V.</p>
+            <table class="table table-striped table-bordered table-hover table-condensed">
+                <h3 class="text-danger text-center">Manual functions </h3>
+                <hr/>
+                <thead>
+                    <tr>
+                        <th>Relay number</th>
+                        <th>Current status</th>
+                        <th>Startup status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- relay1-->
+                    <tr>
+                        <td>relay 1</td>
+                        <td>
+                            <div>
+                                <label class="switch">
+                                    <input type="checkbox" id="relay-1-operating-status">
+                                    <span class="slider"></span>
+                                </label>
+                            </div>
+                        </td>
+                        <td>
+                            <div>
+                                <label class="switch">
+                                    <input type="checkbox" id="relay-1-startup-status" name="relay1" onclick="relay_startup_status(this);">
+                                    <span class="slider"></span>
+                                </label>
+                            </div>
+                        </td>
+                    </tr>
+                    <!-- /relay1-->
+
+                    <!-- relay2-->
+                    <tr>
+                        <td>relay 2</td>
+                        <td>
+                            <div>
+                                <label class="switch">
+                                    <input type="checkbox" id="relay-2-operating-status">
+                                    <span class="slider"></span>
+                                </label>
+                            </div>
+                        </td>
+                        <td>
+                            <div>
+                                <label class="switch">
+                                    <input type="checkbox" id="relay-2-startup-status" name="relay2" onclick="relay_startup_status(this);">
+                                    <span class="slider"></span>
+                                </label>
+                            </div>
+                        </td>
+                    </tr>
+                    <!-- /relay2-->
+
+                    <!-- relay3-->
+                    <tr>
+                        <td>relay 3</td>
+                        <td>
+                            <div>
+                                <label class="switch">
+                                    <input type="checkbox" id="relay-3-operating-status">
+                                    <span class="slider"></span>
+                                </label>
+                            </div>
+                        </td>
+                        <td>
+                            <div>
+                                <label class="switch">
+                                    <input type="checkbox" id="relay-3-startup-status" name="relay3" onclick="relay_startup_status(this);">
+                                    <span class="slider"></span>
+                                </label>
+                            </div>
+                        </td>
+                    </tr>
+                    <!-- /relay3-->
+
+                    <!-- relay4-->
+                    <tr>
+                        <td>relay 4</td>
+                        <td>
+                            <div>
+                                <label class="switch">
+                                    <input type="checkbox" id="relay-4-operating-status">
+                                    <span class="slider"></span>
+                                </label>
+                            </div>
+                        </td>
+                        <td>
+                            <div>
+                                <label class="switch">
+                                    <input type="checkbox" id="relay-4-startup-status" name="relay4" onclick="relay_startup_status(this);">
+                                    <span class="slider"></span>
+                                </label>
+                            </div>
+                        </td>
+                    </tr>
+                    <!-- /relay4-->
+
+                    <!-- relay5-->
+                    <tr>
+                        <td>relay 5</td>
+                        <td>
+                            <div>
+                                <label class="switch">
+                                    <input type="checkbox" class="input-sm" id="relay-5-operating-status">
+                                    <span class="slider"></span>
+                                </label>
+                            </div>
+                        </td>
+                        <td>
+                            <div>
+                                <label class="switch">
+                                    <input type="checkbox" class="input-sm" id="relay-5-startup-status" name="relay5" onclick="relay_startup_status(this);">
+                                    <span class="slider"></span>
+                                </label>
+                            </div>
+                        </td>
+                    </tr>
+                    <!-- /relay5-->
+                </tbody>
+            </table>
+        </div>
+        <div class="col-sm-2 col-md-2  col-lg-2"></div>
+    </div>
+
+    <!--////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        TIMER FUNCTIONS
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////-->
+    <div class="row">
+        <div class="col-sm-2 col-md-2  col-lg-2"></div>
+        <div class="col-sm-8 col-md-8 col-lg-8">
+            <table class="table table-striped table-bordered table-hover table-condensed">
+                <h3 class="text-danger text-center">Timer functions </h3>
+                <hr/>
+                <thead>
+                    <tr>
+                        <th>Relay number</th>
+                        <th>Turn on time </th>
+                        <th>Turn off time</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- relay1-->
+                    <tr>
+                        <td>relay 1</td>
+                        <td>
+                            <div>
+                                <select class="browser-default custom-select" id="relay-1-on-hr" onchange="relay_timer(this);">
+                                    <option value="00"selected>00</option>
+                                    <option value="01">01</option>
+                                    <option value="02">02</option>
+                                    <option value="03">03</option>
+                                    <option value="04">04</option>
+                                    <option value="05">05</option>
+                                    <option value="06">06</option>
+                                    <option value="07">07</option>
+                                    <option value="08">08</option>
+                                    <option value="09">09</option>
+                                    <option value="10">10</option>
+                                    <option value="11">11</option>
+                                    <option value="12">12</option>
+                                    <option value="13">13</option>
+                                    <option value="14">14</option>
+                                    <option value="15">15</option>
+                                    <option value="16">16</option>
+                                    <option value="17">17</option>
+                                    <option value="18">18</option>
+                                    <option value="19">19</option>
+                                    <option value="20">20</option>
+                                    <option value="21">21</option>
+                                    <option value="22">22</option>
+                                    <option value="23">23</option>
+                                </select>
+                                <select class="browser-default custom-select" id="relay-1-on-min" onchange="relay_timer(this);">
+                                    <option value="00"selected>00</option>
+                                    <option value="05">05</option>
+                                    <option value="10">10</option>
+                                    <option value="15">15</option>
+                                    <option value="20">20</option>
+                                    <option value="25">25</option>
+                                    <option value="30">30</option>
+                                    <option value="35">35</option>
+                                    <option value="40">40</option>
+                                    <option value="45">45</option>
+                                    <option value="50">50</option>
+                                    <option value="55">55</option>
+                                </select>
+                            </div>
+                        </td>
+                        <td>
+                            <div>
+                                <select class="browser-default custom-select" id="relay-1-off-hr" onchange="relay_timer(this);">
+                                    <option value="00"selected>00</option>
+                                    <option value="01">01</option>
+                                    <option value="02">02</option>
+                                    <option value="03">03</option>
+                                    <option value="04">04</option>
+                                    <option value="05">05</option>
+                                    <option value="06">06</option>
+                                    <option value="07">07</option>
+                                    <option value="08">08</option>
+                                    <option value="09">09</option>
+                                    <option value="10">10</option>
+                                    <option value="11">11</option>
+                                    <option value="12">12</option>
+                                    <option value="13">13</option>
+                                    <option value="14">14</option>
+                                    <option value="15">15</option>
+                                    <option value="16">16</option>
+                                    <option value="17">17</option>
+                                    <option value="18">18</option>
+                                    <option value="19">19</option>
+                                    <option value="20">20</option>
+                                    <option value="21">21</option>
+                                    <option value="22">22</option>
+                                    <option value="23">23</option>
+                                </select>
+                                <select class="browser-default custom-select" id="relay-1-off-min" onchange="relay_timer(this);">
+                                    <option value="00"selected>00</option>
+                                    <option value="05">05</option>
+                                    <option value="10">10</option>
+                                    <option value="15">15</option>
+                                    <option value="20">20</option>
+                                    <option value="25">25</option>
+                                    <option value="30">30</option>
+                                    <option value="35">35</option>
+                                    <option value="40">40</option>
+                                    <option value="45">45</option>
+                                    <option value="50">50</option>
+                                    <option value="55">55</option>
+                                </select>
+                            </div>
+                        </td>
+                    </tr>
+                    <!-- /relay1-->
+
+                    <!-- relay2-->
+                    <tr>
+                        <td>relay 2</td>
+                        <td>
+                            <div>
+                                <select class="browser-default custom-select" id="relay-2-on-hr" onchange="relay_timer(this);">
+                                    <option value="00"selected>00</option>
+                                    <option value="01">01</option>
+                                    <option value="02">02</option>
+                                    <option value="03">03</option>
+                                    <option value="04">04</option>
+                                    <option value="05">05</option>
+                                    <option value="06">06</option>
+                                    <option value="07">07</option>
+                                    <option value="08">08</option>
+                                    <option value="09">09</option>
+                                    <option value="10">10</option>
+                                    <option value="11">11</option>
+                                    <option value="12">12</option>
+                                    <option value="13">13</option>
+                                    <option value="14">14</option>
+                                    <option value="15">15</option>
+                                    <option value="16">16</option>
+                                    <option value="17">17</option>
+                                    <option value="18">18</option>
+                                    <option value="19">19</option>
+                                    <option value="20">20</option>
+                                    <option value="21">21</option>
+                                    <option value="22">22</option>
+                                    <option value="23">23</option>
+                                </select>
+                                <select class="browser-default custom-select" id="relay-2-on-min" onchange="relay_timer(this);">
+                                    <option value="00"selected>00</option>
+                                    <option value="05">05</option>
+                                    <option value="10">10</option>
+                                    <option value="15">15</option>
+                                    <option value="20">20</option>
+                                    <option value="25">25</option>
+                                    <option value="30">30</option>
+                                    <option value="35">35</option>
+                                    <option value="40">40</option>
+                                    <option value="45">45</option>
+                                    <option value="50">50</option>
+                                    <option value="55">55</option>
+                                </select>
+                            </div>
+                        </td>
+                        <td>
+                            <div>
+                                <select class="browser-default custom-select" id="relay-2-off-hr" onchange="relay_timer(this);">
+                                    <option value="00"selected>00</option>
+                                    <option value="01">01</option>
+                                    <option value="02">02</option>
+                                    <option value="03">03</option>
+                                    <option value="04">04</option>
+                                    <option value="05">05</option>
+                                    <option value="06">06</option>
+                                    <option value="07">07</option>
+                                    <option value="08">08</option>
+                                    <option value="09">09</option>
+                                    <option value="10">10</option>
+                                    <option value="11">11</option>
+                                    <option value="12">12</option>
+                                    <option value="13">13</option>
+                                    <option value="14">14</option>
+                                    <option value="15">15</option>
+                                    <option value="16">16</option>
+                                    <option value="17">17</option>
+                                    <option value="18">18</option>
+                                    <option value="19">19</option>
+                                    <option value="20">20</option>
+                                    <option value="21">21</option>
+                                    <option value="22">22</option>
+                                    <option value="23">23</option>
+                                </select>
+                                <select class="browser-default custom-select" id="relay-2-off-min" onchange="relay_timer(this);">
+                                    <option value="00"selected>00</option>
+                                    <option value="05">05</option>
+                                    <option value="10">10</option>
+                                    <option value="15">15</option>
+                                    <option value="20">20</option>
+                                    <option value="25">25</option>
+                                    <option value="30">30</option>
+                                    <option value="35">35</option>
+                                    <option value="40">40</option>
+                                    <option value="45">45</option>
+                                    <option value="50">50</option>
+                                    <option value="55">55</option>
+                                </select>
+                            </div>
+                        </td>
+                    </tr>
+                    <!-- /relay2-->
+
+                    <!-- relay3-->
+                    <tr>
+                        <td>relay 3</td>
+                        <td>
+                            <div>
+                                <select class="browser-default custom-select" id="relay-3-on-hr" onchange="relay_timer(this);">
+                                    <option value="00"selected>00</option>
+                                    <option value="01">01</option>
+                                    <option value="02">02</option>
+                                    <option value="03">03</option>
+                                    <option value="04">04</option>
+                                    <option value="05">05</option>
+                                    <option value="06">06</option>
+                                    <option value="07">07</option>
+                                    <option value="08">08</option>
+                                    <option value="09">09</option>
+                                    <option value="10">10</option>
+                                    <option value="11">11</option>
+                                    <option value="12">12</option>
+                                    <option value="13">13</option>
+                                    <option value="14">14</option>
+                                    <option value="15">15</option>
+                                    <option value="16">16</option>
+                                    <option value="17">17</option>
+                                    <option value="18">18</option>
+                                    <option value="19">19</option>
+                                    <option value="20">20</option>
+                                    <option value="21">21</option>
+                                    <option value="22">22</option>
+                                    <option value="23">23</option>
+                                </select>
+                                <select class="browser-default custom-select" id="relay-3-on-min" onchange="relay_timer(this);">
+                                    <option value="00"selected>00</option>
+                                    <option value="05">05</option>
+                                    <option value="10">10</option>
+                                    <option value="15">15</option>
+                                    <option value="20">20</option>
+                                    <option value="25">25</option>
+                                    <option value="30">30</option>
+                                    <option value="35">35</option>
+                                    <option value="40">40</option>
+                                    <option value="45">45</option>
+                                    <option value="50">50</option>
+                                    <option value="55">55</option>
+                                </select>
+                            </div>
+                        </td>
+                        <td>
+                            <div>
+                                <select class="browser-default custom-select" id="relay-3-off-hr" onchange="relay_timer(this);">
+                                    <option value="00"selected>00</option>
+                                    <option value="01">01</option>
+                                    <option value="02">02</option>
+                                    <option value="03">03</option>
+                                    <option value="04">04</option>
+                                    <option value="05">05</option>
+                                    <option value="06">06</option>
+                                    <option value="07">07</option>
+                                    <option value="08">08</option>
+                                    <option value="09">09</option>
+                                    <option value="10">10</option>
+                                    <option value="11">11</option>
+                                    <option value="12">12</option>
+                                    <option value="13">13</option>
+                                    <option value="14">14</option>
+                                    <option value="15">15</option>
+                                    <option value="16">16</option>
+                                    <option value="17">17</option>
+                                    <option value="18">18</option>
+                                    <option value="19">19</option>
+                                    <option value="20">20</option>
+                                    <option value="21">21</option>
+                                    <option value="22">22</option>
+                                    <option value="23">23</option>
+                                </select>
+                                <select class="browser-default custom-select" id="relay-3-off-min" onchange="relay_timer(this);">
+                                    <option value="00"selected>00</option>
+                                    <option value="05">05</option>
+                                    <option value="10">10</option>
+                                    <option value="15">15</option>
+                                    <option value="20">20</option>
+                                    <option value="25">25</option>
+                                    <option value="30">30</option>
+                                    <option value="35">35</option>
+                                    <option value="40">40</option>
+                                    <option value="45">45</option>
+                                    <option value="50">50</option>
+                                    <option value="55">55</option>
+                                </select>
+                            </div>
+                        </td>
+                    </tr>
+                    <!-- /relay3-->
+
+                    <!-- relay4-->
+                    <tr>
+                        <td>relay 4</td>
+                        <td>
+                            <div>
+                                <select class="browser-default custom-select" id="relay-4-on-hr" onchange="relay_timer(this);">
+                                    <option value="00"selected>00</option>
+                                    <option value="01">01</option>
+                                    <option value="02">02</option>
+                                    <option value="03">03</option>
+                                    <option value="04">04</option>
+                                    <option value="05">05</option>
+                                    <option value="06">06</option>
+                                    <option value="07">07</option>
+                                    <option value="08">08</option>
+                                    <option value="09">09</option>
+                                    <option value="10">10</option>
+                                    <option value="11">11</option>
+                                    <option value="12">12</option>
+                                    <option value="13">13</option>
+                                    <option value="14">14</option>
+                                    <option value="15">15</option>
+                                    <option value="16">16</option>
+                                    <option value="17">17</option>
+                                    <option value="18">18</option>
+                                    <option value="19">19</option>
+                                    <option value="20">20</option>
+                                    <option value="21">21</option>
+                                    <option value="22">22</option>
+                                    <option value="23">23</option>
+                                </select>
+                                <select class="browser-default custom-select" id="relay-4-on-min" onchange="relay_timer(this);">
+                                    <option value="00"selected>00</option>
+                                    <option value="05">05</option>
+                                    <option value="10">10</option>
+                                    <option value="15">15</option>
+                                    <option value="20">20</option>
+                                    <option value="25">25</option>
+                                    <option value="30">30</option>
+                                    <option value="35">35</option>
+                                    <option value="40">40</option>
+                                    <option value="45">45</option>
+                                    <option value="50">50</option>
+                                    <option value="55">55</option>
+                                </select>
+                            </div>
+                        </td>
+                        <td>
+                            <div>
+                                <select class="browser-default custom-select" id="relay-4-off-hr" onchange="relay_timer(this);">
+                                    <option value="00"selected>00</option>
+                                    <option value="01">01</option>
+                                    <option value="02">02</option>
+                                    <option value="03">03</option>
+                                    <option value="04">04</option>
+                                    <option value="05">05</option>
+                                    <option value="06">06</option>
+                                    <option value="07">07</option>
+                                    <option value="08">08</option>
+                                    <option value="09">09</option>
+                                    <option value="10">10</option>
+                                    <option value="11">11</option>
+                                    <option value="12">12</option>
+                                    <option value="13">13</option>
+                                    <option value="14">14</option>
+                                    <option value="15">15</option>
+                                    <option value="16">16</option>
+                                    <option value="17">17</option>
+                                    <option value="18">18</option>
+                                    <option value="19">19</option>
+                                    <option value="20">20</option>
+                                    <option value="21">21</option>
+                                    <option value="22">22</option>
+                                    <option value="23">23</option>
+                                </select>
+                                <select class="browser-default custom-select" id="relay-4-off-min" onchange="relay_timer(this);">
+                                    <option value="00"selected>00</option>
+                                    <option value="05">05</option>
+                                    <option value="10">10</option>
+                                    <option value="15">15</option>
+                                    <option value="20">20</option>
+                                    <option value="25">25</option>
+                                    <option value="30">30</option>
+                                    <option value="35">35</option>
+                                    <option value="40">40</option>
+                                    <option value="45">45</option>
+                                    <option value="50">50</option>
+                                    <option value="55">55</option>
+                                </select>
+                            </div>
+                        </td>
+                    </tr>
+                    <!-- /relay4-->
+
+                    <!-- relay5-->
+                    <tr>
+                        <td>relay 5</td>
+                        <td>
+                            <div>
+                                <select class="browser-default custom-select" id="relay-5-on-hr" onchange="relay_timer(this);">
+                                    <option value="00"selected>00</option>
+                                    <option value="01">01</option>
+                                    <option value="02">02</option>
+                                    <option value="03">03</option>
+                                    <option value="04">04</option>
+                                    <option value="05">05</option>
+                                    <option value="06">06</option>
+                                    <option value="07">07</option>
+                                    <option value="08">08</option>
+                                    <option value="09">09</option>
+                                    <option value="10">10</option>
+                                    <option value="11">11</option>
+                                    <option value="12">12</option>
+                                    <option value="13">13</option>
+                                    <option value="14">14</option>
+                                    <option value="15">15</option>
+                                    <option value="16">16</option>
+                                    <option value="17">17</option>
+                                    <option value="18">18</option>
+                                    <option value="19">19</option>
+                                    <option value="20">20</option>
+                                    <option value="21">21</option>
+                                    <option value="22">22</option>
+                                    <option value="23">23</option>
+                                </select>
+                                <select class="browser-default custom-select" id="relay-5-on-min" onchange="relay_timer(this);">
+                                    <option value="00"selected>00</option>
+                                    <option value="05">05</option>
+                                    <option value="10">10</option>
+                                    <option value="15">15</option>
+                                    <option value="20">20</option>
+                                    <option value="25">25</option>
+                                    <option value="30">30</option>
+                                    <option value="35">35</option>
+                                    <option value="40">40</option>
+                                    <option value="45">45</option>
+                                    <option value="50">50</option>
+                                    <option value="55">55</option>
+                                </select>
+                            </div>
+                        </td>
+                        <td>
+                            <div>
+                                <select class="browser-default custom-select" id="relay-5-off-hr" onchange="relay_timer(this);">
+                                    <option value="00"selected>00</option>
+                                    <option value="01">01</option>
+                                    <option value="02">02</option>
+                                    <option value="03">03</option>
+                                    <option value="04">04</option>
+                                    <option value="05">05</option>
+                                    <option value="06">06</option>
+                                    <option value="07">07</option>
+                                    <option value="08">08</option>
+                                    <option value="09">09</option>
+                                    <option value="10">10</option>
+                                    <option value="11">11</option>
+                                    <option value="12">12</option>
+                                    <option value="13">13</option>
+                                    <option value="14">14</option>
+                                    <option value="15">15</option>
+                                    <option value="16">16</option>
+                                    <option value="17">17</option>
+                                    <option value="18">18</option>
+                                    <option value="19">19</option>
+                                    <option value="20">20</option>
+                                    <option value="21">21</option>
+                                    <option value="22">22</option>
+                                    <option value="23">23</option>
+                                </select>
+                                <select class="browser-default custom-select" id="relay-5-off-min" onchange="relay_timer(this);">
+                                    <option value="00"selected>00</option>
+                                    <option value="05">05</option>
+                                    <option value="10">10</option>
+                                    <option value="15">15</option>
+                                    <option value="20">20</option>
+                                    <option value="25">25</option>
+                                    <option value="30">30</option>
+                                    <option value="35">35</option>
+                                    <option value="40">40</option>
+                                    <option value="45">45</option>
+                                    <option value="50">50</option>
+                                    <option value="55">55</option>
+                                </select>
+                            </div>
+                        </td>
+                    </tr>
+                    <!-- /relay5-->
+                </tbody>
+            </table>
+        </div>
+        <div class="col-sm-2 col-md-2  col-lg-2"></div>
+    </div>
+</div>
+
+<script>
+    document.getElementById("coverage").onchange = function(e)
+    {
+        console.log(this[this.selectedIndex].text);
+    };
+</script>

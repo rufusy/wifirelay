@@ -1,40 +1,35 @@
-#include <Arduino.h>
 #include "server.h"
-#include <WebSocketsServer.h>
+#include "webSocketManager.h"
+#include "sanitize.h"
+#include "WiFiUdp.h"
 
+//char incoming_tiVa_data[20]  = {'0'};
+String incoming_tiVa_data;
 
-WebSocketsServer webSocket = WebSocketsServer(81);
-void webSocketEvent(uint8_t, WStype_t, uint8_t *, size_t);
-
+WiFiUDP UDP;    // instance of WiFiUDP class to receive and send
+IPAddress timeServerIP; // timr.nist.gov NTP server address
+const char* NTPServername = "time.nist.gov";
 
 void setup()
 {
-  _wifi_init();
-  _spiffs_init();
-  _server_init();
+    wifiInit();
+    serverInit();
+    webSocketinit();
 
-  webSocket.begin();
-  webSocket.onEvent(webSocketEvent);
+
 }
 
 void loop()
 {
-    webSocket.loop();
-    _handle_client();
-    if(Serial.available() > 0)
+    handleClient();
+    webSocketLoop();
+    //webSocketSend();
+    //get_serial_in();
+    //sanitize_serial_in();
+    /*
+    if(Serial.available())
     {
-        char c[] = {(char)Serial.read()};
-        webSocket.broadcastTXT(c, sizeof(c));
-    }
-}
-
-
-void webSocketEvent(uint8_t num, WStype_t type, uint8_t * payload, size_t length)
-{
-    if(type == WStype_TEXT)
-    {
-        for(int i = 0; i < length; i++)
-        Serial.print((char) payload[i]);
-        Serial.println();
-    }
+        incoming_tiVa_data = Serial.readStringUntil('\n');
+        Serial.print(incoming_tiVa_data);
+    }*/
 }

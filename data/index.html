@@ -4,12 +4,10 @@
     <title>home</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
     <link type="text/css" rel="stylesheet" href="style.css">
-
 </head>
-<body>
+<body onload="createWs()">
     <div class="container-fluid">
         <!-- Second navbar for categories -->
         <nav class="navbar navbar-inverse navbar-fixed-top">
@@ -54,39 +52,39 @@
 
         <!--auth page -->
         <div id="auth_page">
-            <div w3-include-html="auth.html"></div>
+            <div w3-include-html="_auth_page.html"></div>
         </div>
         <!-- /auth page -->
 
 
         <!--io page -->
         <div id="io_page">
-            <div w3-include-html="io.html"></div>
+            <div w3-include-html="_io_page.html"></div>
         </div>
         <!-- /io page -->
 
         <!-- relay page -->
         <div id="relay_page">
-            <h3> relay page </h3>
+            <div w3-include-html="_relay_page.html"></div>
         </div>
         <!-- /relay page -->
 
         <!-- analog page -->
         <div id="analog_page">
-            <h3> analog page </h3>
+            <div w3-include-html="_analog_page.html"></div>
         </div>
         <!-- /analog page -->
 
 
         <!-- datetime page -->
         <div id="datetime_page">
-            <h3> datetime page </h3>
+            <div w3-include-html="_datetime_page.html"></div>
         </div>
         <!-- /datetime page -->
 
         <!-- about page -->
         <div id="about_page">
-            <h3> about page </h3>
+            <div w3-include-html="_about_page.html"></div>
         </div>
         <!-- /about page -->
 
@@ -96,11 +94,9 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-switch/3.3.4/js/bootstrap-switch.js" data-turbolinks-track="true"></script>
     <script src="main.js"></script>
-
     <script>
         show_home_page();
         includeHTML();
     </script>
-
 </body>
 </html>
