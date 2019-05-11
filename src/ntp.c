@@ -1,8 +1,20 @@
-#include "server.h"
-#include "webSocketManager.h"
-#include "sanitize.h"
-#include <WiFiUdp.h>
-//#include "ntp.h"
+/*
+#include "ntp.h"
+
+WiFiUDP UDP;    // instance of WiFiUDP class to receive and send
+IPAddress timeServerIP; // timr.nist.gov NTP server address
+NTPServerName = "time.nist.gov"; //
+NTP_PACKET_SIZE = 48;   // NTP time stamp is in the first 48 bytes
+                        // of the message
+byte NTPBuffer[NTP_PACKET_SIZE];    // buffer to hold incoming and
+                                    // outgoing packets
+intervalNTP = (60000*1);  // request NTP time every 300seconds
+prevNTP = 0;
+lastNTPResponse = millis();
+timeUNIX = 0;
+prevActualTime = 0;
+
+
 
 
 WiFiUDP UDP;    // instance of WiFiUDP class to receive and send
@@ -11,38 +23,13 @@ const char* NTPServerName = "time.nist.gov"; //
 const int NTP_PACKET_SIZE = 48; // NTP time stamp is in the first 48 bytes of the message
 byte NTPBuffer[NTP_PACKET_SIZE]; // buffer to hold incoming and outgoing packets
 
+
+
 unsigned long intervalNTP = (60000*1);  // request NTP time every 300seconds
 unsigned long prevNTP = 0;
 unsigned lastNTPResponse = millis();
 uint32_t timeUNIX = 0;
 unsigned long prevActualTime = 0;
-
-void startUDP(void);
-uint32_t getTime(void);
-void sendNTPpacket(IPAddress& address);
-inline int getSeconds(uint32_t UNIXTime);
-inline int getMinutes(uint32_t UNIXTime);
-inline int getHours(uint32_t UNIXTime);
-void ntp_timer(void);
-
-
-void
-setup()
-{
-    wifiInit();
-    serverInit();
-    webSocketinit();
-    startUDP();
-}
-
-
-void
-loop()
-{
-    handleClient();
-    webSocketLoop();
-    ntp_timer();
-}
 
 
 void
@@ -155,3 +142,4 @@ ntp_timer(void)
                         getMinutes(actualTime), getSeconds(actualTime));
     }
 }
+*/
