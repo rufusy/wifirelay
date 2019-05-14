@@ -151,7 +151,7 @@ ntp_timer(void)
     if(actualTime != prevActualTime && timeUNIX != 0)
     {// if a second has passed since last print
         prevActualTime = actualTime;
-        Serial.printf("\rUTC time:\t%d:%d:%d ",getHours(actualTime),
-                        getMinutes(actualTime), getSeconds(actualTime));
+        //Serial.printf("\rUTC time:\t%d:%d:%d ",getHours(actualTime),
+                        //getMinutes(actualTime), getSeconds(actualTime));
     }
 }

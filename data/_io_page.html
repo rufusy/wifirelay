@@ -11,9 +11,8 @@
                 <thead>
                     <tr>
                         <th>Pin Number</th>
-                        <th>Direction</th>
-                        <th>Status</th>
-                        <th>Startup Status</th>
+                        <th>Operating State</th>
+                        <th>Switch State</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -22,18 +21,7 @@
                         <td>channel 1</td>
                         <td>
                             <div>
-                                <label class="switch">
-                                    <input type="checkbox" id="ch-1-direction" name="ch1" onclick="gpio_set_dir(this);">
-                                    <span class="slider"></span>
-                                </label>
-                            </div>
-                        </td>
-                        <td>
-                            <div>
-                                <label class="switch">
-                                    <input type="checkbox" id="ch-1-operating-status">
-                                    <span class="slider"></span>
-                                </label>
+                                <p id="ch-1-operating-status">OFF</p>
                             </div>
                         </td>
                         <td>
@@ -52,18 +40,7 @@
                         <td>channel 2</td>
                         <td>
                             <div>
-                                <label class="switch">
-                                    <input type="checkbox" id="ch-2-direction" name="ch2" onclick="gpio_set_dir(this);">
-                                    <span class="slider"></span>
-                                </label>
-                            </div>
-                        </td>
-                        <td>
-                            <div>
-                                <label class="switch">
-                                    <input type="checkbox" id="ch-2-operating-status">
-                                    <span class="slider"></span>
-                                </label>
+                                <p id="ch-2-operating-status">OFF</p>
                             </div>
                         </td>
                         <td>
@@ -82,18 +59,7 @@
                         <td>channel 3</td>
                         <td>
                             <div>
-                                <label class="switch">
-                                    <input type="checkbox" id="ch-3-direction" name="ch3" onclick="gpio_set_dir(this);">
-                                    <span class="slider"></span>
-                                </label>
-                            </div>
-                        </td>
-                        <td>
-                            <div>
-                                <label class="switch">
-                                    <input type="checkbox" id="ch-3-operating-status">
-                                    <span class="slider"></span>
-                                </label>
+                                <p id="ch-3-operating-status">OFF</p>
                             </div>
                         </td>
                         <td>
@@ -112,18 +78,7 @@
                         <td>channel 4</td>
                         <td>
                             <div>
-                                <label class="switch">
-                                    <input type="checkbox" id="ch-4-direction" name="ch4" onclick="gpio_set_dir(this);">
-                                    <span class="slider"></span>
-                                </label>
-                            </div>
-                        </td>
-                        <td>
-                            <div>
-                                <label class="switch">
-                                    <input type="checkbox" id="ch-4-operating-status">
-                                    <span class="slider"></span>
-                                </label>
+                                <p id="ch-4-operating-status">OFF</p>
                             </div>
                         </td>
                         <td>
@@ -142,18 +97,7 @@
                         <td>channel 5</td>
                         <td>
                             <div>
-                                <label class="switch">
-                                    <input type="checkbox" id="ch-5-direction" name="ch5" onclick="gpio_set_dir(this);">
-                                    <span class="slider"></span>
-                                </label>
-                            </div>
-                        </td>
-                        <td>
-                            <div>
-                                <label class="switch">
-                                    <input type="checkbox" id="ch-5-operating-status" >
-                                    <span class="slider"></span>
-                                </label>
+                                <p id="ch-5-operating-status">OFF</p>
                             </div>
                         </td>
                         <td>
@@ -166,94 +110,6 @@
                         </td>
                     </tr>
                     <!-- /gpio-->
-
-                    <!--
-                    <tr>
-                        <td>channel 6</td>
-                        <td>
-                            <div>
-                                <label class="switch">
-                                    <input type="checkbox" id="ch-6-direction" name="ch6"onclick="gpio_set_dir(this);">
-                                    <span class="slider"></span>
-                                </label>
-                            </div>
-                        </td>
-                        <td>
-                            <div>
-                                <label class="switch">
-                                    <input type="checkbox" id="ch-6-operating-status" >
-                                    <span class="slider"></span>
-                                </label>
-                            </div>
-                        </td>
-                        <td>
-                            <div>
-                                <label class="switch">
-                                    <input type="checkbox" id="ch-6-startup-status"name="ch6" onclick="gpio_startup_status(this);">
-                                    <span class="slider"></span>
-                                </label>
-                            </div>
-                        </td>
-                    </tr>
-
-                    <tr>
-                        <td>channel 7</td>
-                        <td>
-                            <div>
-                                <label class="switch">
-                                    <input type="checkbox" id="ch-7-direction" name="ch7"onclick="gpio_set_dir(this);">
-                                    <span class="slider"></span>
-                                </label>
-                            </div>
-                        </td>
-                        <td>
-                            <div>
-                                <label class="switch">
-                                    <input type="checkbox" id="ch-7-operating-status" >
-                                    <span class="slider"></span>
-                                </label>
-                            </div>
-                        </td>
-                        <td>
-                            <div>
-                                <label class="switch">
-                                    <input type="checkbox" id="ch-7-startup-status" name="ch7"onclick="gpio_startup_status(this);">
-                                    <span class="slider"></span>
-                                </label>
-                            </div>
-                        </td>
-                    </tr>
-
-                    <tr>
-                        <td>channel 8</td>
-                        <td>
-                            <div>
-                                <label class="switch">
-                                    <input type="checkbox" id="ch-8-direction" name="ch8"onclick="gpio_set_dir(this);">
-                                    <span class="slider"></span>
-                                </label>
-                            </div>
-                        </td>
-                        <td>
-                            <div>
-                                <label class="switch">
-                                    <input type="checkbox" id="ch-8-operating-status" >
-                                    <span class="slider"></span>
-                                </label>
-                            </div>
-                        </td>
-                        <td>
-                            <div>
-                                <label class="switch">
-                                    <input type="checkbox" id="ch-8-startup-status" name="ch8"onclick="gpio_startup_status(this);">
-                                    <span class="slider"></span>
-                                </label>
-                            </div>
-                        </td>
-                    </tr>
-                    -->
-
-
                 </tbody>
             </table>
 

@@ -19,61 +19,45 @@ function createWs()
         if(document.getElementById('io_page').style.display != 'none')
         {
             console.log(evt.data);
-            var ch1_dir = document.getElementById('ch-1-direction');
-            var ch1_wkp = document.getElementById('ch-1-startup-status');
-            var ch1_op = document.getElementById('ch-1-operating-status');
+            var ch1_wkp = document.getElementById('ch-1-startup-status'); // startup state
+            var ch1_op = document.getElementById('ch-1-operating-status');  // operating state
 
-            var ch2_dir = document.getElementById('ch-2-direction');
             var ch2_wkp = document.getElementById('ch-2-startup-status');
             var ch2_op = document.getElementById('ch-2-operating-status');
 
-            var ch3_dir = document.getElementById('ch-3-direction');
             var ch3_wkp = document.getElementById('ch-3-startup-status');
             var ch3_op = document.getElementById('ch-3-operating-status');
 
-            var ch4_dir = document.getElementById('ch-4-direction');
             var ch4_wkp = document.getElementById('ch-4-startup-status');
             var ch4_op = document.getElementById('ch-4-operating-status');
 
-            var ch5_dir = document.getElementById('ch-5-direction');
             var ch5_wkp = document.getElementById('ch-5-startup-status');
             var ch5_op = document.getElementById('ch-5-operating-status');
 
-            if(evt.data == '+ch1.output*') ch1_dir.checked = true;
-            else if(evt.data == '+ch1.input*') ch1_dir.checked = false;
-            else if(evt.data == '+ch1.high*') ch1_wkp.checked = true;
+            if(evt.data == '+ch1.high*') ch1_wkp.checked = true;
             else if(evt.data == '+ch1.low*') ch1_wkp.checked = false;
-            else if(evt.data == '+ch1.on*') ch1_op.checked = true;
-            else if(evt.data == '+ch1.off*') ch1_op.checked = false;
+            else if(evt.data == '+ch1.on*') ch1_op.innerHTML = "ON";
+            else if(evt.data == '+ch1.off*') ch1_op.innerHTML = "OFF";
 
-            else if(evt.data == '+ch2.output*') ch2_dir.checked = true;
-            else if(evt.data == '+ch2.input*') ch2_dir.checked = false;
             else if(evt.data == '+ch2.high*') ch2_wkp.checked = true;
             else if(evt.data == '+ch2.low*') ch2_wkp.checked = false;
-            else if(evt.data == '+ch2.on*') ch2_op.checked = true;
-            else if(evt.data == '+ch2.off*') ch2_op.checked = false;
+            else if(evt.data == '+ch2.on*') ch2_op.innerHTML = "ON";
+            else if(evt.data == '+ch2.off*') ch2_op.innerHTML = "OFF";
 
-            else if(evt.data == '+ch3.output*') ch3_dir.checked = true;
-            else if(evt.data == '+ch3.input*') ch3_dir.checked = false;
             else if(evt.data == '+ch3.high*')ch3_wkp.checked = true;
             else if(evt.data == '+ch3.low*')ch3_wkp.checked = false;
-            else if(evt.data == '+ch3.on*')ch3_op.checked = true;
-            else if(evt.data == '+ch3.off*')ch3_op.checked = false;
+            else if(evt.data == '+ch3.on*')ch3_op.innerHTML = "ON";
+            else if(evt.data == '+ch3.off*')ch3_op.innerHTML = "OFF";
 
-            else if(evt.data == '+ch4.output*') ch4_dir.checked = true;
-            else if(evt.data == '+ch4.input*') ch4_dir.checked = false;
             else if(evt.data == '+ch4.high*') ch4_wkp.checked = true;
             else if(evt.data == '+ch4.low*') ch4_wkp.checked = false;
-            else if(evt.data == '+ch4.on*') ch4_op.checked = true;
-            else if(evt.data == '+ch4.off*') ch4_op.checked = false;
+            else if(evt.data == '+ch4.on*') ch4_op.innerHTML = "ON";
+            else if(evt.data == '+ch4.off*') ch4_op.innerHTML = "OFF";
 
-            else if(evt.data == '+ch5.output*') ch5_dir.checked = true;
-            else if(evt.data == '+ch5.input*') ch5_dir.checked = false;
             else if(evt.data == '+ch5.high*') ch5_wkp.checked = true;
             else if(evt.data == '+ch5.low*') ch5_wkp.checked = false;
-            else if(evt.data == '+ch5.on*') ch5_op.checked = true;
-            else if(evt.data == '+ch5.off*') ch5_op.checked = false;
-
+            else if(evt.data == '+ch5.on*') ch5_op.innerHTML = "ON";
+            else if(evt.data == '+ch5.off*') ch5_op.innerHTML = "OFF";
             else console.log('unknown event');
         }
 
@@ -84,25 +68,45 @@ function createWs()
         {
             console.log(evt.data);
             var relay1_wkp = document.getElementById('relay-1-startup-status');
+            var relay1_op = document.getElementById('relay-1-operating-status');
+
             var relay2_wkp = document.getElementById('relay-2-startup-status');
+            var relay2_op = document.getElementById('relay-2-operating-status');
+
             var relay3_wkp = document.getElementById('relay-3-startup-status');
+            var relay3_op = document.getElementById('relay-3-operating-status');
+
             var relay4_wkp = document.getElementById('relay-4-startup-status');
+            var relay4_op = document.getElementById('relay-4-operating-status');
+
             var relay5_wkp = document.getElementById('relay-5-startup-status');
+            var relay5_op = document.getElementById('relay-5-operating-status');
+
 
             if(evt.data == '+relay1.high*') relay1_wkp.checked = true;
             else if(evt.data == '+relay1.low*') relay1_wkp.checked = false;
+            else if(evt.data == '+relay1.on*') relay1_op.innerHTML = "ON";
+            else if(evt.data == '+relay1.off*') relay1_op.innerHTML = "OFF";
 
             else if(evt.data == '+relay2.high*') relay2_wkp.checked = true;
             else if(evt.data == '+relay2.low*') relay2_wkp.checked = false;
+            else if(evt.data == '+relay2.on*') relay2_op.innerHTML = "ON";
+            else if(evt.data == '+relay2.off*') relay2_op.innerHTML = "OFF";
 
             else if(evt.data == '+relay3.high*') relay3_wkp.checked = true;
             else if(evt.data == '+relay3.low*') relay3_wkp.checked = false;
+            else if(evt.data == '+relay3.on*') relay3_op.innerHTML = "ON";
+            else if(evt.data == '+relay3.off*') relay3_op.innerHTML = "OFF";
 
             else if(evt.data == '+relay4.high*') relay4_wkp.checked = true;
             else if(evt.data == '+relay4.low*') relay4_wkp.checked = false;
+            else if(evt.data == '+relay4.on*') relay4_op.innerHTML = "ON";
+            else if(evt.data == '+relay4.off*') relay4_op.innerHTML = "OFF";
 
             else if(evt.data == '+relay5.high*') relay5_wkp.checked = true;
             else if(evt.data == '+relay5.low*') relay5_wkp.checked = false;
+            else if(evt.data == '+relay5.on*') relay5_op.innerHTML = "ON";
+            else if(evt.data == '+relay5.off*') relay5_op.innerHTML = "OFF";
 
             else console.log('unknown event');
         }
@@ -112,7 +116,6 @@ function createWs()
 
 function show_home_page()
 {
-    //document.querySelector("#index_page").style.display = " ";
     document.getElementById("home_page").style.display = "";
     document.getElementById("io_page").style.display = "none";
     document.getElementById("about_page").style.display = "none";
@@ -125,9 +128,7 @@ function show_home_page()
 
 function show_page(d)
 {
-    /*
-        list all available pages
-    */
+    // all available pages
     var pages_list =    ["home_page",
                         "io_page",
                         "about_page",
@@ -135,10 +136,8 @@ function show_page(d)
                         "auth_page",
                         "datetime_page",
                         "relay_page"];
-    /*
-        we'll pick the page to display based on the arg passed
-        in the function
-    */
+
+    // we'll pick the page to display based on the arg passed  in the function
     var page_id = d.getAttribute('id');
     var page_name = d.getAttribute('name');
     var page_index = pages_list.indexOf(page_name);
@@ -183,56 +182,13 @@ function includeHTML() {
 }
 
 
-
-
-function gpio_set_dir(d)
-{
-    var io_dir_config = {};
-    var io_dir_cmd;
-
-    var checkbox_dir = document.getElementById(d.getAttribute('id'));
-    if (checkbox_dir.checked)
-    {
-        //io_dir_config['io'] = d.getAttribute('name');
-        //io_dir_config['dir'] = 'output';
-        Socket.send('+'+d.getAttribute('name')+'.'+'output*')
-    }
-    else
-    {
-        //io_dir_config['io'] = d.getAttribute('name');
-        //io_dir_config['dir'] = 'input';
-        Socket.send('+'+d.getAttribute('name')+'.'+'input*')
-    }
-    //io_dir_cmd = JSON.stringify(io_dir_config);
-    //alert(io_dir_cmd);
-    //console.log(io_dir_cmd);
-    //Socket.send(io_dir_cmd);
-}
-
-
-
 function gpio_startup_status(d)
 {
-    var io_startup_config = {};
-    var io_startup_cmd;
-
     var checkbox_startup = document.getElementById(d.getAttribute('id'));
     if (checkbox_startup.checked)
-    {
-        //io_startup_config['io'] = d.getAttribute('name');
-        //io_startup_config['startup'] = 'high';
-        Socket.send('+'+d.getAttribute('name')+'.'+'high*')
-    }
+        Socket.send('+'+d.getAttribute('name')+'.'+'high*');
     else
-    {
-        //io_startup_config['io'] = d.getAttribute('name');
-        //io_startup_config['startup'] = 'low';
-        Socket.send('+'+d.getAttribute('name')+'.'+'low*')
-    }
-    //io_startup_cmd = JSON.stringify(io_startup_config);
-    //alert(io_startup_cmd);
-    //console.log(io_startup_cmd);
-    //Socket.send(io_startup_cmd);
+        Socket.send('+'+d.getAttribute('name')+'.'+'low*');
 }
 
 
@@ -248,16 +204,88 @@ function relay_startup_status(d)
 
 function relay_timer(d)
 {
-    var relay = document.getElementById(d.getAttribute('id'));
-    Socket.send('+'+relay.getAttribute("id")+'.'+relay.value+'*');
+    var relay_btn = document.getElementById(d.getAttribute('id')).getAttribute("name");
+    if(relay_btn == "relay1-save")
+    {
+        var relay1_on_time = document.getElementById("relay1-on").value;
+        var relay1_off_time = document.getElementById("relay1-off").value;
+        Socket.send("+relay1.on."+relay1_on_time+".off."+relay1_off_time+"*");
+    }
+    else if(relay_btn == "relay2-save")
+    {
+        var relay2_on_time = document.getElementById("relay2-on").value;
+        var relay2_off_time = document.getElementById("relay2-off").value;
+        Socket.send("+relay2.on."+relay2_on_time+".off."+relay2_off_time+"*");
+    }
+    else if(relay_btn == "relay3-save")
+    {
+        var relay3_on_time = document.getElementById("relay3-on").value;
+        var relay3_off_time = document.getElementById("relay3-off").value;
+        Socket.send("+relay3.on."+relay3_on_time+".off."+relay3_off_time+"*");
+    }
+    else if(relay_btn == "relay4-save")
+    {
+        var relay4_on_time = document.getElementById("relay4-on").value;
+        var relay4_off_time = document.getElementById("relay4-off").value;
+        Socket.send("+relay4.on."+relay4_on_time+".off."+relay4_off_time+"*");
+    }
+    else if(relay_btn == "relay5-save")
+    {
+        var relay5_on_time = document.getElementById("relay5-on").value;
+        var relay5_off_time = document.getElementById("relay5-off").value;
+        Socket.send("+relay5.on."+relay5_on_time+".off."+relay5_off_time+"*");
+    }
+    else
+    {
+        // error
+    }
 }
 
-
-function io_page_updater()
+function analog(d)
 {
-
-}
-
-function relay_page_updater()
-{
+    var analog_btn = document.getElementById(d.getAttribute('id')).getAttribute("name");
+    if(analog_btn == "an1-save")
+    {
+        var an1_up_val = document.getElementById("an1-up-val").value;
+        var an1_low_val = document.getElementById("an1-low-val").value;
+        var an1_ch = document.getElementById("an1-ch").value;
+        var an1_relay = document.getElementById("an1-relay").value;
+        var an1_action = document.getElementById("an1-action").value;
+        Socket.send("+an1."+an1_up_val+"."+an1_low_val+"."+an1_ch+"."+an1_relay+"."+
+            an1_action+"*");
+    }
+    else if(analog_btn == "an2-save")
+    {
+        var an2_up_val = document.getElementById("an2-up-val").value;
+        var an2_low_val = document.getElementById("an2-low-val").value;
+        var an2_ch = document.getElementById("an2-ch").value;
+        var an2_relay = document.getElementById("an2-relay").value;
+        var an2_action = document.getElementById("an2-action").value;
+        Socket.send("+an2."+an2_up_val+"."+an2_low_val+"."+an2_ch+"."+an2_relay+"."
+            +an2_action+"*");
+    }
+    else if(analog_btn == "an3-save")
+    {
+        var an3_up_val = document.getElementById("an3-up-val").value;
+        var an3_low_val = document.getElementById("an3-low-val").value;
+        var an3_ch = document.getElementById("an3-ch").value;
+        var an3_relay = document.getElementById("an3-relay").value;
+        var an3_action = document.getElementById("an3-action").value;
+        Socket.send("+an3."+an3_up_val+"."+an3_low_val+"."+an3_ch+"."+an3_relay+"."
+            +an3_action+"*");
+    }
+    else if(analog_btn == "an4-save")
+    {
+        var an4_up_val = document.getElementById("an4-up-val").value;
+        var an4_low_val = document.getElementById("an4-low-val").value;
+        var an4_ch = document.getElementById("an4-ch").value;
+        var an4_relay = document.getElementById("an4-relay").value;
+        var an4_action = document.getElementById("an4-action").value;
+        Socket.send("+an4."+an4_up_val+"."+an4_low_val+"."+an4_ch+"."+an4_relay+"."
+            +an4_action+"*");
+    }
+    else
+    {
+        //
+    }
 }
