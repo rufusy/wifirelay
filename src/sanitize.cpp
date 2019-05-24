@@ -1,22 +1,27 @@
 #include "sanitize.h"
 
-char serial_in_cfg[100];
-char sanitize_serial_in_cfg[10][10]; //can store 10 words of 10 characters
-size_t i,j,cnt;
-
-void get_serial_in(void)
-{
-    strcpy(serial_in_cfg,"red.green.blue");
+char    serial_in_cfg[20] = {'\0'},
+        sanitize_serial_in_cfg[4][7] = {'\0'},   //can store 10 words of 10 characters
+        sanitize_timer_cfg[2][7] = {'\0'}; 
+   
+void
+get_serial_in(char data_in[])
+{   
+    memset(serial_in_cfg, '\0', sizeof(serial_in_cfg));
+    strcpy(serial_in_cfg,data_in);
 }
 
 
-void sanitize_serial_in(void)
+/*void
+sanitize_serial_in(char delimitor, char src[])
 {
+    char i,j,cnt;
     j=0; cnt=0;
-    for(i=0;i<=(strlen(serial_in_cfg));i++)
+    memset(sanitize_serial_in_cfg, '\0', sizeof(sanitize_serial_in_cfg));
+    for(i=0;i<=(strlen(src));i++)
     {
-        // if space or NULL found, assign NULL into splitStrings[cnt]
-        if(serial_in_cfg[i]=='.'||serial_in_cfg[i]=='\0')
+        // if delimitor or NULL found, assign NULL into splitStrings[cnt]
+        if(src[i]== delimitor ||src[i]=='\0')
         {
             sanitize_serial_in_cfg[cnt][j]='\0';
             cnt++;  //for next word
@@ -24,8 +29,34 @@ void sanitize_serial_in(void)
         }
         else
         {
-            sanitize_serial_in_cfg[cnt][j]=serial_in_cfg[i];
+            sanitize_serial_in_cfg[cnt][j]=src[i];
             j++;
         }
     }
 }
+*/
+
+void
+sanitize_serial_in(char delimitor, char src[], char dest[][7])
+{
+    char i,j,cnt;
+    j=0; cnt=0;
+    memset(dest, '\0', sizeof(dest));
+    for(i=0;i<=(strlen(src));i++)
+    {
+        // if delimitor or NULL found, assign NULL into splitStrings[cnt]
+        if(src[i]== delimitor ||src[i]=='\0')
+        {
+            dest[cnt][j]='\0';
+            cnt++;  //for next word
+            j=0;    //for next word, init index to 0
+        }
+        else
+        {
+            dest[cnt][j]=src[i];
+            j++;
+        }
+    }
+    memset(src, '\0', sizeof(src));
+}
+

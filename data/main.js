@@ -108,7 +108,9 @@ function createWs()
             else if(evt.data == '+relay5.on*') relay5_op.innerHTML = "ON";
             else if(evt.data == '+relay5.off*') relay5_op.innerHTML = "OFF";
 
-            else console.log('unknown event');
+            else {
+                //console.log('unknown event');
+            }
         }
     };
 }
@@ -209,31 +211,31 @@ function relay_timer(d)
     {
         var relay1_on_time = document.getElementById("relay1-on").value;
         var relay1_off_time = document.getElementById("relay1-off").value;
-        Socket.send("+relay1.on."+relay1_on_time+".off."+relay1_off_time+"*");
+        Socket.send("t.relay1."+relay1_on_time+"."+relay1_off_time);
     }
     else if(relay_btn == "relay2-save")
     {
         var relay2_on_time = document.getElementById("relay2-on").value;
         var relay2_off_time = document.getElementById("relay2-off").value;
-        Socket.send("+relay2.on."+relay2_on_time+".off."+relay2_off_time+"*");
+        Socket.send("t.relay2."+relay2_on_time+"."+relay2_off_time);
     }
     else if(relay_btn == "relay3-save")
     {
         var relay3_on_time = document.getElementById("relay3-on").value;
         var relay3_off_time = document.getElementById("relay3-off").value;
-        Socket.send("+relay3.on."+relay3_on_time+".off."+relay3_off_time+"*");
+        Socket.send("t.relay3."+relay3_on_time+"."+relay3_off_time);
     }
     else if(relay_btn == "relay4-save")
     {
         var relay4_on_time = document.getElementById("relay4-on").value;
         var relay4_off_time = document.getElementById("relay4-off").value;
-        Socket.send("+relay4.on."+relay4_on_time+".off."+relay4_off_time+"*");
+        Socket.send("t.relay4."+relay4_on_time+"."+relay4_off_time);
     }
     else if(relay_btn == "relay5-save")
     {
         var relay5_on_time = document.getElementById("relay5-on").value;
         var relay5_off_time = document.getElementById("relay5-off").value;
-        Socket.send("+relay5.on."+relay5_on_time+".off."+relay5_off_time+"*");
+        Socket.send("t.relay5."+relay5_on_time+"."+relay5_off_time);
     }
     else
     {

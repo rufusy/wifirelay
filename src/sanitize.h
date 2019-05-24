@@ -3,11 +3,12 @@
 
 #include "main.h"
 
-extern char serial_in_cfg[100];
-extern char sanitize_serial_in_cfg[10][10]; //can store 10 words of 10 characters
-extern size_t i,j,cnt;
+extern char serial_in_cfg[20];
+extern char sanitize_serial_in_cfg[4][7]; //can store 4 words of 7 characters
+extern char sanitize_timer_cfg[2][7]; 
 
-void get_serial_in(void);
-void sanitize_serial_in(void);
+void get_serial_in(char data_in[]);
+//void sanitize_serial_in(char delimitor, char src[]);
+void sanitize_serial_in(char delimitor, char src[], char dest[][7]);
 
 #endif
