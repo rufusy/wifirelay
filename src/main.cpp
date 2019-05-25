@@ -37,15 +37,19 @@ int relay2_timer_config[4] = {0,0,0,0};
 int relay3_timer_config[4] = {0,0,0,0};
 int relay4_timer_config[4] = {0,0,0,0};
 int relay5_timer_config[4] = {0,0,0,0};
-
-int relay1_on=0,
-    relay1_off=0;
-   
-void relay1_timer(void);
-void relay2_timer(void);
-void relay3_timer(void);
-void relay4_timer(void);
-void relay5_timer(void);
+int relay1_on=  0,
+    relay1_off= 0,
+    relay2_on=  0,
+    relay2_off= 0,
+    relay3_on=  0,
+    relay3_off= 0,
+    relay4_on=  0,
+    relay4_off= 0,
+    relay5_on=  0,
+    relay5_off= 0;
+void get_timer_config(int size);
+void save_timer_config(int relay_config[4], int relay);
+void send_timer_action(void);
 
 
 void
@@ -65,71 +69,30 @@ loop()
     webSocketLoop();
     webSocketSend();
     ntp_timer();
-    sanitize_serial_in('.', serial_in_cfg, sanitize_serial_in_cfg); 
-    if(strcmp((char*)sanitize_serial_in_cfg[1],"relay1") == 0)
-    {
-        memset(sanitize_serial_in_cfg[1], '\0', sizeof(sanitize_serial_in_cfg[1]));
-        relay1_timer();
-    }
-/*
-    if( relay1_timer_config[0] == hour && relay1_timer_config[1] == minute)
-        Serial.print("+relay1.high*");
-    if( relay1_timer_config[2] == hour && relay1_timer_config[3] == minute)
-        Serial.print("+relay1.low*");*/
-        //Serial.printf("\rNetwork time->\t%d:%d:%d",hour,minute,second);
-        //Serial.println("");
-      /*  Serial.printf("\rrelay1 timer->\ton:%d:%d off:%d:%d", 
-                    relay1_timer_config[0],
-                    relay1_timer_config[1],
-                    relay1_timer_config[2],
-                    relay1_timer_config[3]);*/ 
-
-        if(relay1_on==1)
-        {
-            if(relay1_timer_config[0] == hour && relay1_timer_config[1] == minute)
-            {
-                Serial.print("+relay1.high*");
-                relay1_on= 0; 
-            }
-        }
-
-        if(relay1_off==1)
-        {
-            if(relay1_timer_config[2] == hour && relay1_timer_config[3] == minute)
-            {
-                Serial.print("+relay1.low*");
-                relay1_off= 0;
-            }
-        }
-
-
- /*   if(strcmp((char*)sanitize_serial_in_cfg[1],"relay2") == 0)
-        relay2_timer(); 
-    if(strcmp((char*)sanitize_serial_in_cfg[1],"relay3") == 0)
-        relay3_timer(); 
-    if(strcmp((char*)sanitize_serial_in_cfg[1],"relay4") == 0)
-        relay4_timer();*/
+    get_timer_config(7);
+    send_timer_action();
 }
+
 
 
 void
 startUDP(void)
 {
-    Serial.println("Starting UDP");
+    //Serial.println("Starting UDP");
     UDP.begin(123); // start listening for UDP packets on port 123
-    Serial.print("Local port:\t");
+ /*   Serial.print("Local port:\t");
     Serial.println(UDP.localPort());
-    Serial.println();
+    Serial.println();*/
 
     if(!WiFi.hostByName(NTPServerName, timeServerIP))
     {   // Get the IP address of the NTP server
-        Serial.println("DNS lookup failed. Rebooting...");
-        Serial.flush();
+        //Serial.println("DNS lookup failed. Rebooting...");
+        //Serial.flush();
         ESP.reset();
     }
-    Serial.print("Time server IP:\t");
+   /* Serial.print("Time server IP:\t");
     Serial.println("timeServerIp");
-    Serial.println("\r\nSending NTP request....");
+    Serial.println("\r\nSending NTP request....");*/
     sendNTPpacket(timeServerIP);
 }
 
@@ -152,7 +115,7 @@ getTime(void)
     const uint32_t seventYears = 2208988800UL;
     // subtract seventy years
     uint32_t UNIXTime = NTPTime - seventYears;
-    return UNIXTime;
+    return (UNIXTime + (uint32_t)10800);
 }
 
 
@@ -200,7 +163,7 @@ ntp_timer(void)
     if (currentMillis - prevNTP > intervalNTP)
     {   // if a minute has passed since last NTP request
         prevNTP = currentMillis;
-        Serial.println("\r\nSending NTP request.....");
+        //Serial.println("\r\nSending NTP request.....");
         sendNTPpacket(timeServerIP);    // send an NTP request
     }
     uint32_t time = getTime();  // check if an NTP response has arrived and get
@@ -208,16 +171,16 @@ ntp_timer(void)
     if(time)
     {
         timeUNIX = time;
-        Serial.print("NTP response:\t");
-        Serial.println(timeUNIX);
+      /*  Serial.print("NTP response:\t");
+        Serial.println(timeUNIX);*/
         lastNTPResponse = currentMillis;
     }
-    else if((currentMillis - lastNTPResponse) > 3600000)
+  /*  else if((currentMillis - lastNTPResponse) > 3600000)
     {
         Serial.println("More than 1 hour since last NTP response. Rebooting..");
         Serial.flush();
         ESP.reset();
-    }
+    }*/
     actualTime = timeUNIX + (currentMillis - lastNTPResponse) / 1000;
     if(actualTime != prevActualTime && timeUNIX != 0)
     {   // if a second has passed since last print
@@ -225,57 +188,176 @@ ntp_timer(void)
         getSeconds(actualTime);  
         getMinutes(actualTime);  
         getHours(actualTime);
+        //Serial.printf("\rNetwork time->\t%d:%d:%d",hour,minute,second);
     }
 }
 
 
+void 
+get_timer_config(int size)
+{
+    sanitize_serial_in('.', serial_in_cfg, sanitize_serial_in_cfg); 
 
-void
-relay1_timer(void)
-{   //t.relay1.01:59.12:00
-/*    sanitize_on_timer(':',sanitize_serial_in_cfg[2]);  
-    relay1_timer_config[0] = atoi(sanitize_timer_cfg[0]);
-    relay1_timer_config[1] = atoi(sanitize_timer_cfg[1]);
-    sanitize_off_timer(':',sanitize_serial_in_cfg[3]);
-    relay1_timer_config[2] = atoi(sanitize_timer_cfg[0]);
-    relay1_timer_config[3] = atoi(sanitize_timer_cfg[1]);*/
+    if(strcmp((char*)sanitize_serial_in_cfg[1],"relay1") == 0)
+    {
+        memset(sanitize_serial_in_cfg[1], '\0', size);
+        save_timer_config(relay1_timer_config, 1);
+    }
+    if(strcmp((char*)sanitize_serial_in_cfg[1],"relay2") == 0)
+    {
+        memset(sanitize_serial_in_cfg[1], '\0', size);
+        save_timer_config(relay2_timer_config, 2);
+    }
+    if(strcmp((char*)sanitize_serial_in_cfg[1],"relay3") == 0)
+    {
+        memset(sanitize_serial_in_cfg[1], '\0', size);
+        save_timer_config(relay3_timer_config, 3);
+    }
+    if(strcmp((char*)sanitize_serial_in_cfg[1],"relay4") == 0)
+    {
+        memset(sanitize_serial_in_cfg[1], '\0', size);
+        save_timer_config(relay4_timer_config, 4);
+    }
+    if(strcmp((char*)sanitize_serial_in_cfg[1],"relay5") == 0)
+    {
+        memset(sanitize_serial_in_cfg[1], '\0', size);
+        save_timer_config(relay5_timer_config, 5);
+    }
+}
 
+
+void 
+save_timer_config(int relay_config[4], int relay)
+{
+    //01:59.12:00
     // get relay on time
     sanitize_serial_in(':',sanitize_serial_in_cfg[2],sanitize_timer_cfg); 
-    relay1_timer_config[0] = atoi(sanitize_timer_cfg[0]);
-    relay1_timer_config[1] = atoi(sanitize_timer_cfg[1]);
+    relay_config[0] = atoi(sanitize_timer_cfg[0]);
+    relay_config[1] = atoi(sanitize_timer_cfg[1]);
     // get relay off time
     sanitize_serial_in(':',sanitize_serial_in_cfg[3],sanitize_timer_cfg);
-    relay1_timer_config[2] = atoi(sanitize_timer_cfg[0]);
-    relay1_timer_config[3] = atoi(sanitize_timer_cfg[1]);
-
-    relay1_on=1;
-    relay1_off=1;
+    relay_config[2] = atoi(sanitize_timer_cfg[0]);
+    relay_config[3] = atoi(sanitize_timer_cfg[1]);
+    // set action flags
+    switch(relay)
+    {
+        case 1:
+            relay1_on=1;
+            relay1_off=1;
+            break;
+        case 2:
+            relay2_on=1;
+            relay2_off=1;
+            break;
+        case 3:
+            relay3_on=1;
+            relay3_off=1;
+            break;
+        case 4:
+            relay4_on=1;
+            relay4_off=1;
+            break;
+        case 5:
+            relay5_on=1;
+            relay5_off=1;
+            break;
+        default:
+            Serial.println("Timer action flag not set");
+    }
 }
-/*
-void
-relay2_timer(void)
+
+void 
+send_timer_action(void)
 {
-    Serial.print("Relay2");
+    /* relay 1*/
+    if(relay1_on==1)
+    {
+        if(relay1_timer_config[0] == hour && relay1_timer_config[1] == minute)
+        {
+            Serial.print("+relay1.high*");
+            relay1_on= 0; 
+        }
+    }
+
+    if(relay1_off==1)
+    {
+        if(relay1_timer_config[2] == hour && relay1_timer_config[3] == minute)
+        {
+            Serial.print("+relay1.low*");
+            relay1_off= 0;
+        }
+    }
+    // relay 2
+    if(relay2_on==1)
+    {
+        if(relay2_timer_config[0] == hour && relay2_timer_config[1] == minute)
+        {
+            Serial.print("+relay2.high*");
+            relay2_on= 0; 
+        }
+    }
+    if(relay2_off==1)
+    {
+        if(relay2_timer_config[2] == hour && relay2_timer_config[3] == minute)
+        {
+            Serial.print("+relay2.low*");
+            relay2_off= 0;
+        }
+    }   
+
+    // relay 3
+    if(relay3_on==1)
+    {
+        if(relay3_timer_config[0] == hour && relay3_timer_config[1] == minute)
+        {
+            Serial.print("+relay3.high*");
+            relay3_on= 0; 
+        }
+    }
+    if(relay3_off==1)
+    {
+        if(relay3_timer_config[2] == hour && relay3_timer_config[3] == minute)
+        {
+            Serial.print("+relay3.low*");
+            relay3_off= 0;
+        }
+    }   
+
+    // relay 4
+    if(relay4_on==1)
+    {
+        if(relay4_timer_config[0] == hour && relay4_timer_config[1] == minute)
+        {
+            Serial.print("+relay4.high*");
+            relay4_on= 0; 
+        }
+    }
+
+    if(relay4_off==1)
+    {
+        if(relay4_timer_config[2] == hour && relay4_timer_config[3] == minute)
+        {
+            Serial.print("+relay4.low*");
+            relay4_off= 0;
+        }
+    }   
+
+    // relay 5
+    if(relay5_on==1)
+    {
+        if(relay5_timer_config[0] == hour && relay5_timer_config[1] == minute)
+        {
+            Serial.print("+relay5.high*");
+            relay5_on= 0; 
+        }
+    }
+
+    if(relay5_off==1)
+    {
+        if(relay5_timer_config[2] == hour && relay5_timer_config[3] == minute)
+        {
+            Serial.print("+relay5.low*");
+            relay5_off= 0;
+        }
+    }
 }
-
-void
-relay3_timer(void)
-{
-    Serial.print("Relay3");
-
-}
-
-void
-relay4_timer(void)
-{
-    Serial.print("Relay4");
-
-}
-
-void
-relay5_timer(void)
-{
-    Serial.print("Relay5");
-
-}*/

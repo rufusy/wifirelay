@@ -18,10 +18,11 @@
                     <tr>
                         <th>Number</th>
                         <th>Upper Threshold</th>
+                         <th>Output 1 </th>
+                        <th>Action 1</th>
                         <th>Lower Threshold</th>
-                        <th>Digital Output</th>
-                        <th>Relay</th>
-                        <th>Action</th>
+                        <th>Output 2</th>
+                        <th>Action 2</th>
                         <th></th>
                     </tr>
                 </thead>
@@ -35,37 +36,54 @@
                 			<input type="number" name="an1-up-val" value=""
                 			id="an1-up-val">
                 		</td>
+                        <td> <!-- output1 -->
+                            <select id="an1-output1">
+                                <option vlaue="none">none</option>
+                                <option value="relay1">Relay 1</option>
+                                <option value="relay2">Relay 2</option>
+                                <option value="relay3">Relay 3</option>
+                                <option value="relay4">Relay 4</option>
+                                <option value="relay5">Relay 5</option>
+                                <option value="chan1">Channel 1</option>
+                                <option value="chan2">channel 2</option>
+                                <option value="chan3">Channel 3</option>
+                                <option value="chan4">Channel 4</option>
+                                <option value="chan5">Channel 5</option>
+                            </select>
+                        </td>
+                        <td> <!-- Output1 action -->
+                            <select id="an1-output1-action">
+                                <option vlaue="none">none</option>
+                                <option value="high">High</option>
+                                <option value="low">Low</option>
+                            </select>
+                        </td>
                 		<td> <!-- analog lower threshold-->
                 			<input type="number" name="an1-low-val" value=""
                 			id="an1-low-val">
                 		</td>
-                		<td> <!-- digital output-->
-                			<select id="an1-ch">
-                				<option vlaue="none">none</option>
-                				<option value="ch1">Channel 1</option>
-                				<option value="ch2">Channel 2</option>
-                				<option value="ch3">Channel 3</option>
-                				<option value="ch4">Channel 4</option>
-                				<option value="ch5">Channel 5</option>
-                			</select>
-                		</td>
-                		<td> <!-- Relay -->
-                			<select id="an1-relay">
-                				<option vlaue="none">none</option>
-                				<option value="relay1">Relay 1</option>
-                				<option value="relay2">Relay 2</option>
-                				<option value="relay3">Relay 3</option>
-                				<option value="relay4">Relay 4</option>
-                				<option value="relay5">Relay 5</option>
-                			</select>
-                		</td>
-                		<td> <!-- Action -->
-                			<select id="an1-action">
-                				<option vlaue="none">none</option>
-                				<option value="high">High</option>
-                				<option value="low">Low</option>
-                			</select>
-                		</td>
+                        <td> <!-- Output2 -->
+                            <select id="an1-output2">
+                                <option vlaue="none">none</option>
+                                <option value="relay1">Relay 1</option>
+                                <option value="relay2">Relay 2</option>
+                                <option value="relay3">Relay 3</option>
+                                <option value="relay4">Relay 4</option>
+                                <option value="relay5">Relay 5</option>
+                                <option value="chan1">Channel 1</option>
+                                <option value="chan2">channel 2</option>
+                                <option value="chan3">Channel 3</option>
+                                <option value="chan4">Channel 4</option>
+                                <option value="chan5">Channel 5</option>
+                            </select>
+                        </td>
+                        <td> <!-- Output2 action -->
+                            <select id="an1-output2-action">
+                                <option vlaue="none">none</option>
+                                <option value="high">High</option>
+                                <option value="low">Low</option>
+                            </select>
+                        </td>
                 		<td><!-- save -->
                 			<button type="submit" class="btn btn-default"
                                 name="an1-save"id="an1-save"
@@ -84,37 +102,54 @@
                 			<input type="number" name="an2-up-val" value=""
                 			id="an2-up-val">
                 		</td>
+                        <td> <!-- output1 -->
+                            <select id="an2-output1">
+                                <option vlaue="none">none</option>
+                                <option value="relay1">Relay 1</option>
+                                <option value="relay2">Relay 2</option>
+                                <option value="relay3">Relay 3</option>
+                                <option value="relay4">Relay 4</option>
+                                <option value="relay5">Relay 5</option>
+                                 <option value="chan1">Channel 1</option>
+                                <option value="chan2">channel 2</option>
+                                <option value="chan3">Channel 3</option>
+                                <option value="chan4">Channel 4</option>
+                                <option value="chan5">Channel 5</option>
+                            </select>
+                        </td>
+                        <td> <!-- Output1 action -->
+                            <select id="an2-output1-action">
+                                <option vlaue="none">none</option>
+                                <option value="high">High</option>
+                                <option value="low">Low</option>
+                            </select>
+                        </td>
                 		<td> <!-- analog lower threshold-->
                 			<input type="number" name="an2-low-val" value=""
                 			id="an2-low-val">
                 		</td>
-                		<td> <!-- digital output-->
-                			<select id="an2-ch">
-                				<option vlaue="none">none</option>
-                				<option value="ch1">Channel 1</option>
-                				<option value="ch2">Channel 2</option>
-                				<option value="ch3">Channel 3</option>
-                				<option value="ch4">Channel 4</option>
-                				<option value="ch5">Channel 5</option>
-                			</select>
-                		</td>
-                		<td> <!-- Relay -->
-                			<select id="an2-relay">
-                				<option vlaue="none">none</option>
-                				<option value="relay1">Relay 1</option>
-                				<option value="relay2">Relay 2</option>
-                				<option value="relay3">Relay 3</option>
-                				<option value="relay4">Relay 4</option>
-                				<option value="relay5">Relay 5</option>
-                			</select>
-                		</td>
-                		<td> <!-- Action -->
-                			<select id="an2-action">
-                				<option vlaue="none">none</option>
-                				<option value="high">High</option>
-                				<option value="low">Low</option>
-                			</select>
-                		</td>
+                        <td> <!-- Output2 -->
+                            <select id="an2-output2">
+                                <option vlaue="none">none</option>
+                                <option value="relay1">Relay 1</option>
+                                <option value="relay2">Relay 2</option>
+                                <option value="relay3">Relay 3</option>
+                                <option value="relay4">Relay 4</option>
+                                <option value="relay5">Relay 5</option>
+                                <option value="chan1">Channel 1</option>
+                                <option value="chan2">channel 2</option>
+                                <option value="chan3">Channel 3</option>
+                                <option value="chan4">Channel 4</option>
+                                <option value="chan5">Channel 5</option>
+                            </select>
+                        </td>
+                        <td> <!-- Output2 action -->
+                            <select id="an2-output2-action">
+                                <option vlaue="none">none</option>
+                                <option value="high">High</option>
+                                <option value="low">Low</option>
+                            </select>
+                        </td>
                 		<td><!-- save -->
                 			<button type="submit" class="btn btn-default"
                                 name="an2-save"id="an2-save"
@@ -133,37 +168,54 @@
                 			<input type="number" name="an3-up-val" value=""
                 			id="an3-up-val">
                 		</td>
+                        <td> <!-- output1 -->
+                            <select id="an3-output1">
+                                <option vlaue="none">none</option>
+                                <option value="relay1">Relay 1</option>
+                                <option value="relay2">Relay 2</option>
+                                <option value="relay3">Relay 3</option>
+                                <option value="relay4">Relay 4</option>
+                                <option value="relay5">Relay 5</option>
+                                <option value="chan1">Channel 1</option>
+                                <option value="chan2">channel 2</option>
+                                <option value="chan3">Channel 3</option>
+                                <option value="chan4">Channel 4</option>
+                                <option value="chan5">Channel 5</option>
+                            </select>
+                        </td>
+                        <td> <!-- Output1 action -->
+                            <select id="an3-output1-action">
+                                <option vlaue="none">none</option>
+                                <option value="high">High</option>
+                                <option value="low">Low</option>
+                            </select>
+                        </td>
                 		<td> <!-- analog lower threshold-->
                 			<input type="number" name="an3-low-val" value=""
                 			id="an3-low-val">
                 		</td>
-                		<td> <!-- digital output-->
-                			<select id="an3-ch">
-                				<option vlaue="none">none</option>
-                				<option value="ch1">Channel 1</option>
-                				<option value="ch2">Channel 2</option>
-                				<option value="ch3">Channel 3</option>
-                				<option value="ch4">Channel 4</option>
-                				<option value="ch5">Channel 5</option>
-                			</select>
-                		</td>
-                		<td> <!-- Relay -->
-                			<select id="an3-relay">
-                				<option vlaue="none">none</option>
-                				<option value="relay1">Relay 1</option>
-                				<option value="relay2">Relay 2</option>
-                				<option value="relay3">Relay 3</option>
-                				<option value="relay4">Relay 4</option>
-                				<option value="relay5">Relay 5</option>
-                			</select>
-                		</td>
-                		<td> <!-- Action -->
-                			<select id="an3-action">
-                				<option vlaue="none">none</option>
-                				<option value="high">High</option>
-                				<option value="low">Low</option>
-                			</select>
-                		</td>
+                        <td> <!-- Output2 -->
+                            <select id="an3-output2">
+                                <option vlaue="none">none</option>
+                                <option value="relay1">Relay 1</option>
+                                <option value="relay2">Relay 2</option>
+                                <option value="relay3">Relay 3</option>
+                                <option value="relay4">Relay 4</option>
+                                <option value="relay5">Relay 5</option>
+                                <option value="chan1">Channel 1</option>
+                                <option value="chan2">channel 2</option>
+                                <option value="chan3">Channel 3</option>
+                                <option value="chan4">Channel 4</option>
+                                <option value="chan5">Channel 5</option>
+                            </select>
+                        </td>
+                        <td> <!-- Output2 action -->
+                            <select id="an3-output2-action">
+                                <option vlaue="none">none</option>
+                                <option value="high">High</option>
+                                <option value="low">Low</option>
+                            </select>
+                        </td>
                 		<td><!-- save -->
                 			<button type="submit" class="btn btn-default"
                                 name="an3-save"id="an3-save"
@@ -182,37 +234,54 @@
                 			<input type="number" name="an4-up-val" value=""
                 			id="an4-up-val">
                 		</td>
+                        <td> <!-- output1 -->
+                            <select id="an4-output1">
+                                <option vlaue="none">none</option>
+                                <option value="relay1">Relay 1</option>
+                                <option value="relay2">Relay 2</option>
+                                <option value="relay3">Relay 3</option>
+                                <option value="relay4">Relay 4</option>
+                                <option value="relay5">Relay 5</option>
+                                <option value="chan1">Channel 1</option>
+                                <option value="chan2">channel 2</option>
+                                <option value="chan3">Channel 3</option>
+                                <option value="chan4">Channel 4</option>
+                                <option value="chan5">Channel 5</option>
+                            </select>
+                        </td>
+                        <td> <!-- Output1 action -->
+                            <select id="an4-output1-action">
+                                <option vlaue="none">none</option>
+                                <option value="high">High</option>
+                                <option value="low">Low</option>
+                            </select>
+                        </td>
                 		<td> <!-- analog lower threshold-->
                 			<input type="number" name="an4-low-val" value=""
                 			id="an4-low-val">
                 		</td>
-                		<td> <!-- digital output-->
-                			<select id="an4-ch">
-                				<option vlaue="none">none</option>
-                				<option value="ch1">Channel 1</option>
-                				<option value="ch2">Channel 2</option>
-                				<option value="ch3">Channel 3</option>
-                				<option value="ch4">Channel 4</option>
-                				<option value="ch5">Channel 5</option>
-                			</select>
-                		</td>
-                		<td> <!-- Relay -->
-                			<select id="an4-relay">
-                				<option vlaue="none">none</option>
-                				<option value="relay1">Relay 1</option>
-                				<option value="relay2">Relay 2</option>
-                				<option value="relay3">Relay 3</option>
-                				<option value="relay4">Relay 4</option>
-                				<option value="relay5">Relay 5</option>
-                			</select>
-                		</td>
-                		<td> <!-- Action -->
-                			<select id="an4-action">
-                				<option vlaue="none">none</option>
-                				<option value="high">High</option>
-                				<option value="low">Low</option>
-                			</select>
-                		</td>
+                        <td> <!-- Output2 -->
+                            <select id="an4-output2">
+                                <option vlaue="none">none</option>
+                                <option value="relay1">Relay 1</option>
+                                <option value="relay2">Relay 2</option>
+                                <option value="relay3">Relay 3</option>
+                                <option value="relay4">Relay 4</option>
+                                <option value="relay5">Relay 5</option>
+                                <option value="chan1">Channel 1</option>
+                                <option value="chan2">channel 2</option>
+                                <option value="chan3">Channel 3</option>
+                                <option value="chan4">Channel 4</option>
+                                <option value="chan5">Channel 5</option>
+                            </select>
+                        </td>
+                        <td> <!-- Output2 action -->
+                            <select id="an4-output2-action">
+                                <option vlaue="none">none</option>
+                                <option value="high">High</option>
+                                <option value="low">Low</option>
+                            </select>
+                        </td>
                 		<td><!-- save -->
                 			<button type="submit" class="btn btn-default"
                                 name="an4-save"id="an4-save"

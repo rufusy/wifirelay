@@ -250,41 +250,46 @@ function analog(d)
     {
         var an1_up_val = document.getElementById("an1-up-val").value;
         var an1_low_val = document.getElementById("an1-low-val").value;
-        var an1_ch = document.getElementById("an1-ch").value;
-        var an1_relay = document.getElementById("an1-relay").value;
-        var an1_action = document.getElementById("an1-action").value;
-        Socket.send("+an1."+an1_up_val+"."+an1_low_val+"."+an1_ch+"."+an1_relay+"."+
-            an1_action+"*");
+        var an1_out1 = document.getElementById("an1-output1").value;
+        var an1_out2 = document.getElementById("an1-output2").value;
+        var an1_out1_action = document.getElementById("an1-output1-action").value;
+        var an1_out2_action = document.getElementById("an1-output2-action").value;
+        Socket.send("+an1."+an1_up_val+"."+an1_low_val+"."+an1_out1+"."+an1_out2+"."+
+            an1_out1_action+"."+an1_out2_action+"*");
     }
     else if(analog_btn == "an2-save")
     {
         var an2_up_val = document.getElementById("an2-up-val").value;
         var an2_low_val = document.getElementById("an2-low-val").value;
-        var an2_ch = document.getElementById("an2-ch").value;
-        var an2_relay = document.getElementById("an2-relay").value;
-        var an2_action = document.getElementById("an2-action").value;
-        Socket.send("+an2."+an2_up_val+"."+an2_low_val+"."+an2_ch+"."+an2_relay+"."
-            +an2_action+"*");
+        var an2_out1 = document.getElementById("an2-output1").value;
+        var an2_out2 = document.getElementById("an2-output2").value;
+        var an2_out1_action = document.getElementById("an2-output1-action").value;
+        var an2_out2_action = document.getElementById("an2-output2-action").value;
+        Socket.send("+an2."+an2_up_val+"."+an2_low_val+"."+an2_out1+"."+an2_out2+"."+
+            an2_out1_action+"."+an2_out2_action+"*");
+    
     }
     else if(analog_btn == "an3-save")
     {
         var an3_up_val = document.getElementById("an3-up-val").value;
         var an3_low_val = document.getElementById("an3-low-val").value;
-        var an3_ch = document.getElementById("an3-ch").value;
-        var an3_relay = document.getElementById("an3-relay").value;
-        var an3_action = document.getElementById("an3-action").value;
-        Socket.send("+an3."+an3_up_val+"."+an3_low_val+"."+an3_ch+"."+an3_relay+"."
-            +an3_action+"*");
+        var an3_out1 = document.getElementById("an3-output1").value;
+        var an3_out2 = document.getElementById("an3-output2").value;
+        var an3_out1_action = document.getElementById("an3-output1-action").value;
+        var an3_out2_action = document.getElementById("an3-output2-action").value;
+        Socket.send("+an3."+an3_up_val+"."+an3_low_val+"."+an3_out1+"."+an3_out2+"."+
+            an3_out1_action+"."+an3_out2_action+"*");
     }
     else if(analog_btn == "an4-save")
     {
         var an4_up_val = document.getElementById("an4-up-val").value;
         var an4_low_val = document.getElementById("an4-low-val").value;
-        var an4_ch = document.getElementById("an4-ch").value;
-        var an4_relay = document.getElementById("an4-relay").value;
-        var an4_action = document.getElementById("an4-action").value;
-        Socket.send("+an4."+an4_up_val+"."+an4_low_val+"."+an4_ch+"."+an4_relay+"."
-            +an4_action+"*");
+        var an4_out1 = document.getElementById("an4-output1").value;
+        var an4_out2 = document.getElementById("an4-output2").value;
+        var an4_out1_action = document.getElementById("an4-output1-action").value;
+        var an4_out2_action = document.getElementById("an4-output2-action").value;
+        Socket.send("+an4."+an4_up_val+"."+an4_low_val+"."+an4_out1+"."+an4_out2+"."+
+            an4_out1_action+"."+an4_out2_action+"*");
     }
     else
     {
